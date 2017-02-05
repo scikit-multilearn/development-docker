@@ -1,0 +1,9 @@
+python-dev:
+  build: .
+  environment:
+    - CONTAINER_USER_UID=1000
+    - CONTAINER_GROUP_ID=1000
+    - ADDTOPYPATH=/home/python-dev/src/
+    - JVM_OPT='-Xmx100G'
+  volumes:
+    - /mnt/linux/scikit.ml/:/home/python-dev/

@@ -1,0 +1,15 @@
+#!/bin/bash
+
+# Initialize if user python-dev does not exists
+if [ $(id -u python-dev > /dev/null 2>&1; echo $?) -eq 1 ]; then
+    mkdir -p /home/python-dev
+    groupadd -g $CONTAINER_GROUP_ID python-dev
+    useradd -s /bin/bash -u $CONTAINER_USER_UID -g python-dev -d /home/python-dev/ python-dev
+    echo "python-dev:python-dev" | chpasswd
+    chown python-dev:python-dev /home/python-dev
+
+    echo export TERM=xterm >> /etc/bash.bashrc
+fi
+
+# This leaves the container in standby
+exec tail -f /dev/null
