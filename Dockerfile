@@ -31,4 +31,8 @@ RUN apt-get install -y ruby ruby-dev make gcc
 
 RUN gem install jekyll bundler
 
+RUN add-apt-repository -y ppa:igraph/ppa && apt-get update -y
+RUN apt-get install python-igraph
+RUN pip install whichcraft future
+
 ENTRYPOINT ["/usr/local/bin/setup"]
