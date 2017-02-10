@@ -35,6 +35,6 @@ RUN add-apt-repository -y ppa:igraph/ppa && apt-get update -y
 RUN apt-get install python-igraph
 RUN pip install whichcraft future
 
-RUN wget https://adams.cms.waikato.ac.nz/snapshots/meka/meka-snapshot.zip -O /opt/meka.zip && cd /opt/ && unzip meka.zip
+RUN wget https://adams.cms.waikato.ac.nz/snapshots/meka/meka-snapshot.zip -O /opt/meka.zip && cd /opt/ && unzip meka.zip && rm -rf meka.zip && mv meka* meka
 
 ENTRYPOINT ["/usr/local/bin/setup"]

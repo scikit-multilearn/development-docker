@@ -9,6 +9,7 @@ if [ $(id -u python-dev > /dev/null 2>&1; echo $?) -eq 1 ]; then
     chown python-dev:python-dev /home/python-dev
 
     echo export TERM=xterm >> /etc/bash.bashrc
+    echo export MEKA_CLASSPATH=/opt/meka/lib/ >> /etc/bash.bashrc
 fi
 
 # This leaves the container in standby
