@@ -7,3 +7,5 @@ python-dev:
     - JVM_OPT='-Xmx100G'
   volumes:
     - /mnt/linux/scikit.ml/:/home/python-dev/
+  ports:
+    - 9090:8888
