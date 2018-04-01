@@ -13,20 +13,17 @@ RUN apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv-keys 92F371361A
 
 RUN apt-get update -y 
 
-RUN apt-get install --allow-unauthenticated -y python3-graph-tool oracle-java8-installer python3-pip python3-dev python-dev python-pip python-graph-tool build-essential less libxml2-dev libz-dev libcupti-dev
+RUN apt-get install --allow-unauthenticated -y python3-graph-tool oracle-java8-installer python3-pip python3-dev python-dev python-pip python-graph-tool build-essential less libxml2-dev libz-dev libcupti-dev ruby ruby-dev make gcc
 
 RUN pip3 install --upgrade pip
-RUN pip install --upgrade pip
+RUN pip2 install --upgrade pip
 
-RUN pip3 install liac-arff igraph numpy nose pylint scipy scikit-learn sphinx sphinx_rtd_theme sphinx_pypi_upload whichcraft future python-igraph python-louvain jupyter scikit-plot numpydoc
-RUN pip install liac-arff igraph numpy nose pylint scipy scikit-learn sphinx sphinx_rtd_theme sphinx_pypi_upload whichcraft future python-igraph python-louvain jupyter scikit-plot numpydoc 
- 
+RUN pip3 install liac-arff igraph numpy nose pylint scipy scikit-learn sphinx sphinx_rtd_theme sphinx_pypi_upload whichcraft future python-igraph python-louvain jupyter scikit-plot numpydoc pytest
+RUN pip2 install liac-arff igraph numpy nose pylint scipy scikit-learn sphinx sphinx_rtd_theme sphinx_pypi_upload whichcraft future python-igraph python-louvain jupyter scikit-plot numpydoc pytest
 
 ADD setup /usr/local/bin/
 
 RUN chmod 755 /usr/local/bin/setup
-
-RUN apt-get install -y ruby ruby-dev make gcc
 
 RUN gem install jekyll bundler
 
