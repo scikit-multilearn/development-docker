@@ -29,4 +29,6 @@ RUN gem install jekyll bundler
 
 RUN wget https://adams.cms.waikato.ac.nz/snapshots/meka/meka-snapshot.zip -O /opt/meka.zip && cd /opt/ && unzip meka.zip && rm -rf meka.zip && mv meka* meka
 
+ENV MEKA_CLASSPATH=/opt/meka/lib
+
 ENTRYPOINT ["/usr/local/bin/setup"]
