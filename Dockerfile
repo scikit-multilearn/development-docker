@@ -18,8 +18,8 @@ RUN apt-get install --allow-unauthenticated -y python3-graph-tool oracle-java8-i
 RUN pip3 install --upgrade pip
 RUN pip2 install --upgrade pip
 
-RUN pip3 install liac-arff igraph numpy nose pylint scipy scikit-learn sphinx sphinx_rtd_theme sphinx_pypi_upload whichcraft future python-igraph python-louvain jupyter scikit-plot numpydoc pytest
-RUN pip2 install liac-arff igraph numpy nose pylint scipy scikit-learn sphinx sphinx_rtd_theme sphinx_pypi_upload whichcraft future python-igraph python-louvain jupyter scikit-plot numpydoc pytest
+RUN pip3 install liac-arff numpy nose pylint scipy scikit-learn sphinx sphinx_rtd_theme sphinx_pypi_upload whichcraft future python-igraph python-louvain jupyter scikit-plot numpydoc pytest
+RUN pip2 install liac-arff numpy nose pylint scipy scikit-learn sphinx sphinx_rtd_theme sphinx_pypi_upload whichcraft future python-igraph python-louvain jupyter scikit-plot numpydoc pytest
 
 ADD setup /usr/local/bin/
 
@@ -29,6 +29,6 @@ RUN gem install jekyll bundler
 
 RUN wget https://adams.cms.waikato.ac.nz/snapshots/meka/meka-snapshot.zip -O /opt/meka.zip && cd /opt/ && unzip meka.zip && rm -rf meka.zip && mv meka* meka
 
-ENV MEKA_CLASSPATH=/opt/meka/lib
+ENV MEKA_CLASSPATH=/opt/meka/lib/
 
 ENTRYPOINT ["/usr/local/bin/setup"]
